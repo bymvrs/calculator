@@ -34,7 +34,16 @@ keys.forEach(key => {
     key.addEventListener("click", (e) => {
         clickedKey = e.target.textContent;
 
-        if (clickedKey === "C" || clickedKey === "⌫") return;
+        if (clickedKey === "C"){
+            currentDisplay = [];
+            currentOperation.textContent = "-"
+            num1 = null;
+            operator = null;
+            num2 = null;
+            result = 0;
+            display.textContent = "0";
+            return;
+        }
 
         if (operators.includes(clickedKey)){
             if (currentDisplay.some(elem => operators.includes(elem))) return;
