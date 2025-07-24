@@ -45,6 +45,12 @@ keys.forEach(key => {
             return;
         }
 
+        if (clickedKey === "⌫"){
+            currentDisplay.splice(-1, 1);
+            updateDisplay();
+            return;
+        }
+
         if (operators.includes(clickedKey)){
             if (currentDisplay.some(elem => operators.includes(elem))) return;
             operator = clickedKey;
@@ -65,7 +71,7 @@ keys.forEach(key => {
 })
 
 function updateDisplay(input){
-    currentDisplay.push(input);
+    if (input) currentDisplay.push(input);
     display.textContent = currentDisplay.join("");
 }
 
