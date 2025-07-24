@@ -24,7 +24,7 @@ function operate(num1, operator, num2){
             result = multiply(num1, num2);
             break;
         case "÷":
-            result = divide(num1, num2);
+            result = (num2 === 0) ? "ERROR" : divide(num1, num2);
             break;
     };
     updateDisplay(result);
