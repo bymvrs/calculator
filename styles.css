@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Ubuntu Mono", "Courier New", Courier, monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f5ff;
+}
+
+.calculator {
+    width: 465px;
+    height: 750px;
+    background-color: #4f5a6d;
+    color: #fff;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 6px 8px #d1dbfe;
+    gap: 42px;
+}
+
+.display {
+    background-color: rgba(210, 220, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    color: #fff;
+    font-size: 60px;
+    padding-right: 38px;
+    border-radius: 25px;
+    width: 400px;
+    height: 160px;
+}
+
+.display .current-operation {
+    font-size: 40px;
+    color: #d1dbfe;
+}
+
+.keypad {
+    display: flex;
+    max-width: 360px;
+    flex-wrap: wrap;
+    gap: 26px;
+}
+
+.keypad div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4f5a6d;
+    font-size: 40px;
+    border-radius: 25px;
+    width: 70px;
+    height: 70px;
+    box-shadow: 6px 8px 14px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.keypad div:hover{
+    transform: scale(0.95);
+    background-color: rgba(210, 220, 255, 0.15);
+}
+
+.keypad div:first-child, .keypad div:last-child{
+    width: 160px;
+}
+
+.keypad .special {
+    color: #d1dbfe;
+}
+
+.special.delete, .special.divide {
+    font-size: 48px;
+}
+
+.special.divide {
+    padding-bottom: 4px;
+}
