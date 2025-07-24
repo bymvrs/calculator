@@ -35,13 +35,7 @@ keys.forEach(key => {
         clickedKey = e.target.textContent;
 
         if (clickedKey === "C"){
-            currentDisplay = [];
-            currentOperation.textContent = "-"
-            num1 = null;
-            operator = null;
-            num2 = null;
-            result = 0;
-            display.textContent = "0";
+            clearData();
             return;
         }
 
@@ -89,4 +83,14 @@ function multiply(num1, num2){
 
 function divide(num1, num2){
     return num1 / num2;
+}
+
+function clearData(){
+    currentDisplay = [];
+    currentOperation.textContent = "-"
+    num1 = null;
+    operator = null;
+    num2 = null;
+    result = 0;
+    display.textContent = "0";
 }
