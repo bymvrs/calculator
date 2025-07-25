@@ -12,6 +12,8 @@ let num2 = null;
 
 let result = null;
 
+let hasADecimalPoint = false;
+
 function operate(num1, operator, num2){
     switch (operator) {
         case "+":
@@ -47,9 +49,19 @@ keys.forEach(key => {
         }
 
         if (clickedKey === "⌫"){
-            currentDisplay.splice(-1, 1);
+            const removedValue = currentDisplay.pop();
+            
+            if (removedValue === ".") {
+                hasADecimalPoint = false;
+            };
+
             updateDisplay();
             return;
+        }
+
+        if (clickedKey === "."){
+            if (hasADecimalPoint) return;
+            hasADecimalPoint = true;
         }
 
         if (operators.includes(clickedKey)){
@@ -57,6 +69,7 @@ keys.forEach(key => {
                 getResult();
             };
             num1 = currentDisplay.join("");
+            hasADecimalPoint = false;
             operator = clickedKey;
         }
 
@@ -96,6 +109,7 @@ function clearData(){
     num1 = null;
     operator = null;
     num2 = null;
+    hasADecimalPoint = false;
     result = 0;
     display.textContent = "0";
 }
