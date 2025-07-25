@@ -37,7 +37,7 @@ function operate(num1, operator, num2){
 
 keys.forEach(key => {
     key.addEventListener("click", (e) => {
-        clickedKey = e.target.textContent;
+        const clickedKey = e.target.textContent;
         
         if (display.textContent === "ERROR") clearData();
 
