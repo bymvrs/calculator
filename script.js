@@ -27,6 +27,7 @@ function operate(num1, operator, num2){
             result = (num2 === 0) ? "ERROR" : divide(num1, num2);
             break;
     };
+    
     updateDisplay(result);
 }
 
@@ -34,6 +35,8 @@ keys.forEach(key => {
     key.addEventListener("click", (e) => {
         clickedKey = e.target.textContent;
         
+        if (display.textContent === "ERROR") clearData();
+
         if (clickedKey === "C"){
             clearData();
             return;
