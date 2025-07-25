@@ -53,17 +53,15 @@ keys.forEach(key => {
         }
 
         if (operators.includes(clickedKey)){
-            if (currentDisplay.some(elem => operators.includes(elem))) return;
+            if (currentDisplay.some(elem => operators.includes(elem))){
+                getResult();
+            };
+            num1 = currentDisplay.join("");
             operator = clickedKey;
         }
 
         if (clickedKey === "="){
-            let operation = currentDisplay.join("").split(operator);
-            num1 = operation[0];
-            num2 = operation[1];
-            currentOperation.textContent = currentDisplay.join("");
-            currentDisplay = [];
-            operate(+num1, operator, +num2);
+            getResult();
             return;
         }
 
@@ -100,4 +98,12 @@ function clearData(){
     num2 = null;
     result = 0;
     display.textContent = "0";
+}
+
+function getResult(){
+    let operation = currentDisplay.join("").split(operator);
+    num2 = operation[1];
+    currentOperation.textContent = currentDisplay.join("");
+    currentDisplay = [];
+    operate(+num1, operator, +num2);
 }
