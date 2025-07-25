@@ -48,8 +48,13 @@ keys.forEach(key => {
     key.addEventListener("click", (e) => {
         const clickedKey = e.target.textContent;
 
-        if (equalsWasClicked) clearData();
-        
+        if (equalsWasClicked){
+            if (!isNaN(clickedKey)) {
+                clearData();
+            }
+            equalsWasClicked = false;
+        };
+
         if (display.textContent === "ERROR") clearData();
 
         if (clickedKey === "C"){
@@ -123,7 +128,6 @@ function clearData(){
     operator = null;
     num2 = null;
     hasADecimalPoint = false;
-    equalsWasClicked = false;
     result = 0;
     display.textContent = "0";
 }
