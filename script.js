@@ -19,6 +19,7 @@ let equalsWasClicked = false;
 function operate(num1, operator, num2){
     switch (operator) {
         case "+":
+        default:
             result = add(num1, num2);
             break;
         case "-":
@@ -73,6 +74,7 @@ keys.forEach(key => {
         }
 
         if (operators.includes(clickedKey)){
+            if (operators.includes(currentDisplay.at(-1))) return;
             if (currentDisplay.some(elem => operators.includes(elem))){
                 getResult();
             };
@@ -82,6 +84,8 @@ keys.forEach(key => {
         }
 
         if (clickedKey === "="){
+            if (operators.includes(currentDisplay.at(-1))) return;
+            if (currentDisplay.length === 0) return;
             equalsWasClicked = true;
             getResult();
             return;
@@ -126,7 +130,8 @@ function clearData(){
 
 function getResult(){
     let operation = currentDisplay.join("").split(operator);
-    num2 = operation[1];
+    num1 ??= currentDisplay.join("");
+    num2 = operation[1] ?? 0;
     currentOperation.textContent = currentDisplay.join("");
     currentDisplay = [];
     operate(+num1, operator, +num2);
