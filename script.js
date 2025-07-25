@@ -6,11 +6,11 @@ const operators = ["÷", "x", "-", "+"];
 
 let currentDisplay = [];
 
-let num1;
-let operator;
-let num2;
+let num1 = null;
+let operator = null;
+let num2 = null;
 
-let result;
+let result = null;
 
 function operate(num1, operator, num2){
     switch (operator) {
