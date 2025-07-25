@@ -35,6 +35,12 @@ function operate(num1, operator, num2){
     if (!Number.isInteger(result) && result !== "ERROR"){
         result = result.toFixed(2);
     }
+
+    result = String(result).split("");
+
+    for (let num of result){
+        updateDisplay(num);
+    };
 }
 
 keys.forEach(key => {
