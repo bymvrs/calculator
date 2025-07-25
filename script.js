@@ -14,6 +14,8 @@ let result = null;
 
 let hasADecimalPoint = false;
 
+let equalsWasClicked = false;
+
 function operate(num1, operator, num2){
     switch (operator) {
         case "+":
@@ -33,13 +35,13 @@ function operate(num1, operator, num2){
     if (!Number.isInteger(result) && result !== "ERROR"){
         result = result.toFixed(2);
     }
-    
-    updateDisplay(result);
 }
 
 keys.forEach(key => {
     key.addEventListener("click", (e) => {
         const clickedKey = e.target.textContent;
+
+        if (equalsWasClicked) clearData();
         
         if (display.textContent === "ERROR") clearData();
 
@@ -74,6 +76,7 @@ keys.forEach(key => {
         }
 
         if (clickedKey === "="){
+            equalsWasClicked = true;
             getResult();
             return;
         }
@@ -110,6 +113,7 @@ function clearData(){
     operator = null;
     num2 = null;
     hasADecimalPoint = false;
+    equalsWasClicked = false;
     result = 0;
     display.textContent = "0";
 }
