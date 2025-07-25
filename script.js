@@ -27,6 +27,10 @@ function operate(num1, operator, num2){
             result = (num2 === 0) ? "ERROR" : divide(num1, num2);
             break;
     };
+
+    if (!Number.isInteger(result) && result !== "ERROR"){
+        result = result.toFixed(2);
+    }
     
     updateDisplay(result);
 }
