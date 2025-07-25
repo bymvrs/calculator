@@ -33,7 +33,7 @@ function operate(num1, operator, num2){
 keys.forEach(key => {
     key.addEventListener("click", (e) => {
         clickedKey = e.target.textContent;
-
+        
         if (clickedKey === "C"){
             clearData();
             return;
@@ -87,7 +87,7 @@ function divide(num1, num2){
 
 function clearData(){
     currentDisplay = [];
-    currentOperation.textContent = "-"
+    currentOperation.textContent = "";
     num1 = null;
     operator = null;
     num2 = null;

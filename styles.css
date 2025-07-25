@@ -42,6 +42,7 @@ body {
     border-radius: 25px;
     width: 400px;
     height: 160px;
+    overflow: hidden;
 }
 
 .display .current-operation {
