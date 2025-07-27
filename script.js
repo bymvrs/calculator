@@ -91,6 +91,8 @@ keys.forEach(key => {
                 currentDisplay.pop();
             };
 
+            if (currentDisplay.at(-1) == ".") return;
+
             if (currentDisplay.some(elem => operators.includes(elem))){
                 getResult();
             };
@@ -101,7 +103,7 @@ keys.forEach(key => {
         }
 
         if (clickedKey === "="){
-            if (operators.includes(currentDisplay.at(-1))) return;
+            if (operators.includes(currentDisplay.at(-1)) || currentDisplay.at(-1) == ".") return;
             if (currentDisplay.length === 0) return;
             equalsWasClicked = true;
             getResult();
