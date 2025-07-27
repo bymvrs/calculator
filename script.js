@@ -87,13 +87,18 @@ keys.forEach(key => {
         }
 
         if (operators.includes(clickedKey)){
+            if ((clickedKey === "x" || clickedKey === "÷") && currentDisplay.length === 0) return;
+
             if (operators.includes(currentDisplay.at(-1))){
+                if(currentDisplay.length === 1 && (clickedKey === "x" || clickedKey === "÷")) return;
                 currentDisplay.pop();
             };
 
             if (currentDisplay.at(-1) == ".") return;
 
-            if (currentDisplay.some(elem => operators.includes(elem))){
+            const operatorIndex = currentDisplay.findIndex((elem, i) => operators.includes(elem) && !(i === 0 && elem === "-"));
+
+            if (operatorIndex > 0 && operatorIndex < currentDisplay.length - 1) {
                 getResult();
             };
             
@@ -147,9 +152,10 @@ function clearData(){
 }
 
 function getResult(){
+    if (operator === null || num1 === null) return;
     let operation = currentDisplay.join("").split(operator);
     num1 ??= currentDisplay.join("");
-    num2 = operation[1] ?? 0;
+    num2 = operation[1] ?? num2;
     currentOperation.textContent = currentDisplay.join("");
     currentDisplay = [];
     operate(+num1, operator, +num2);
