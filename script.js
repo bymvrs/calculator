@@ -87,10 +87,14 @@ keys.forEach(key => {
         }
 
         if (operators.includes(clickedKey)){
-            if (operators.includes(currentDisplay.at(-1))) return;
+            if (operators.includes(currentDisplay.at(-1))){
+                currentDisplay.pop();
+            };
+
             if (currentDisplay.some(elem => operators.includes(elem))){
                 getResult();
             };
+            
             num1 = currentDisplay.join("");
             hasADecimalPoint = false;
             operator = clickedKey;
