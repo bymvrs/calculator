@@ -35,6 +35,7 @@ function operate(num1, operator, num2){
 
     if (!Number.isInteger(result) && result !== "ERROR"){
         result = result.toFixed(2);
+        hasADecimalPoint = true;
     }
 
     result = String(result).split("");
@@ -69,12 +70,19 @@ keys.forEach(key => {
                 hasADecimalPoint = false;
             };
 
+            if (operators.includes(removedValue) && currentDisplay.includes(".")) {
+                hasADecimalPoint = true;
+            };
+
             updateDisplay();
             return;
         }
 
         if (clickedKey === "."){
             if (hasADecimalPoint) return;
+            if (currentDisplay.length == 0 || operators.includes(currentDisplay.at(-1))){
+                currentDisplay.push("0")
+            };
             hasADecimalPoint = true;
         }
 
