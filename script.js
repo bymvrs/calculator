@@ -120,6 +120,7 @@ keys.forEach(key => {
 })
 
 function updateDisplay(input){
+    if (display.textContent === "ERROR") return;
     if (input) currentDisplay.push(input);
     display.textContent = currentDisplay.join("");
 }
