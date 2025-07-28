@@ -50,7 +50,7 @@ keys.forEach(key => {
         const clickedKey = e.target.textContent;
 
         if (equalsWasClicked){
-            if (!isNaN(clickedKey)) {
+            if (!isNaN(clickedKey) || clickedKey === ".") {
                 clearData();
             }
             equalsWasClicked = false;
