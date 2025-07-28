@@ -70,9 +70,13 @@ keys.forEach(key => {
                 hasADecimalPoint = false;
             };
 
-            if (operators.includes(removedValue) && currentDisplay.includes(".")) {
-                hasADecimalPoint = true;
-            };
+            if (operators.includes(removedValue)){
+                operator = null;
+                
+                if (currentDisplay.includes(".")){
+                    hasADecimalPoint = true;
+                }
+            }
 
             updateDisplay();
             return;
@@ -87,10 +91,10 @@ keys.forEach(key => {
         }
 
         if (operators.includes(clickedKey)){
-            if ((clickedKey === "x" || clickedKey === "÷") && currentDisplay.length === 0) return;
+            if ((clickedKey === "x" || clickedKey === "÷" || clickedKey === "+") && currentDisplay.length === 0) return;
 
             if (operators.includes(currentDisplay.at(-1))){
-                if(currentDisplay.length === 1 && (clickedKey === "x" || clickedKey === "÷")) return;
+                if(currentDisplay.length === 1 && (clickedKey === "x" || clickedKey === "÷" || clickedKey === "+")) return;
                 currentDisplay.pop();
             };
 
